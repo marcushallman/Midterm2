@@ -97,10 +97,10 @@ setMethod("EAP", "rasch",
 }
 )
 
-setMethod("print","rasch",
+setMethod("print", "rasch", 
           function(object){
             print(object@name)
-            EAP(object)
+            print(EAP(object))
           }
 )
 
