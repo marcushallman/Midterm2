@@ -34,24 +34,33 @@ setMethod("initialize", "rasch", function(.Object, ...){
 #Probability
 
 # a generic Probability function
-setGeneric("probability", function(object="rasch"){   
+setGeneric("probability", function(object="rasch",theta ="numeric"){   
   standardGeneric("probability")
 })
 
 setMethod("probability", "rasch",
-function(raschObj,theta){
- pn<-length(object@a)
-  print(pn)
+function(object,theta){
+  exppart<-theta-sapply(object@a,exp)
+ pij<-exppart/(1-exppart)   #making Pij
+ qij<-1-pij                  #making qij
+ pq<- c(1:length(pij))       #cant think of a way to use apply here. this part makes an empty vector
+ for (i in 1:length(pij)){
+   if (y==1) pq[i]=pij[i]
+   else pq[i]=qij[i]
+ }
+ return(pq)
+ return(pij)
 }
 )
   
   
-  
-  
-  
+fakea<-c(1,1,1,1,1,1,1,1) 
+fakey<-c(1,1,1,1,1,1,1,1)  
+fake<-new("rasch","Walt Whitman",fakea,fakey)  
   
  #running it 
   
   current.code <- as.package("easyRasch")
   load_all(current.code)
   document(current.code)  
+  
