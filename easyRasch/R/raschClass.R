@@ -1,13 +1,13 @@
-#' A file of the easyRasch package 
+#' Creates a new rasch class object
 #' 
-#' Object of class \code{Rasch} are created by the \code{integrateIt} functions
+#' Initiallizes rasch class objeccts
 #'
 #' 
 #' An object of the class "rasch" has the following slots:
 #' \itemize{
 #' \item \code{name} A character string indicating the name of the student
 #' \item \code{a} A vector of difficulty values for each test question
-#' \item \code{yJ} A vector of binary values indicating whether the student got the question right (1) or wrong)
+#' \item \code{y} A vector of binary values indicating whether the student got the question right (1) or wrong)
 #' }
 #'
 #' @author Marcus Hallman: \email{hallman@@wustl.edu}

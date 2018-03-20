@@ -1,3 +1,21 @@
+#' Rasch probability
+#'
+#' Calculates the probability of certain combinations of answers to questions
+#'
+#' @param object An object of class "rasch." 
+#' @param theta A numeric theta value
+#' @author Marcus Hallman: \email{hallman@@wustl.edu}
+#' @note This is for midterm
+#' @examples
+#' 
+#' a <- c(1:10)
+#' y <- c(1,0,1,1,0,1,0,1,0,1)
+#' Disney <- new("rasch", name = "Walt", a = a, y = y)
+#' theta<- 2
+#' raschEAP(Disney, theta)
+#' @seealso \code{\link{raschProbability}}
+#' @rdname raschLikelihood
+#' @export
 setGeneric("probability", function(object="rasch",theta ="numeric"){   
   standardGeneric("probability")
 })
