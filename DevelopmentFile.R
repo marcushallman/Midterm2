@@ -19,7 +19,7 @@ setClass(Class="rasch",
 )
 # A validity checker
 setValidity("rasch", function(object){
-  if(length(a)!=length(y)){return("question and answer vectors must have same length")}  #checks that the vectors are of same length
+  if(length(object@a)!=length(object@y)){return("question and answer vectors must have same length")}  #checks that the vectors are of same length
 })
 
 
@@ -30,7 +30,8 @@ setMethod("initialize", "rasch", function(.Object, ...){
   return(value)
 })
 
-  
+
+
 #Probability
 
 # a generic Probability function
@@ -41,22 +42,22 @@ setGeneric("probability", function(object="rasch",theta ="numeric"){
 setMethod("probability", "rasch",
 function(object,theta){
   exppart<-theta-sapply(object@a,exp)
- pij<-exppart/(1-exppart)   #making Pij
- qij<-1-pij                  #making qij
- pq<- c(1:length(pij))       #cant think of a way to use apply here. this part makes an empty vector
+ pij<<-exppart/(1-exppart)   #making Pij and creating the obhect in the global environment
+ qij<<-1-pij                  #making qij
+ pq<<- c(1:length(pij))       #cant think of a way to use apply here. this part makes an empty vector
  for (i in 1:length(pij)){
-   if (y==1) pq[i]=pij[i]
-   else pq[i]=qij[i]
+   if (object@y[i]==1) pq[i]=pij[i]
+   else pq[i]=qij[i]                   #this part is and creating the pq object in the global environment
  }
- return(pq)
- return(pij)
+ print(pq)
+ print(pij)
 }
 )
   
-  
 fakea<-c(1,1,1,1,1,1,1,1) 
 fakey<-c(1,1,1,1,1,1,1,1)  
-fake<-new("rasch","Walt Whitman",fakea,fakey)  
+blank<-new("rasch", name="Walt Whitman", a=c(1,1,1), y=c(1,0,1))
+probability(blank,2)
   
  #running it 
   
