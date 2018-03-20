@@ -1,9 +1,9 @@
 Package: easyRasch
 Type: Package
-Title: What the package does (short line)
+Title: calculates rasch probabilities
 Version: 1.0
 Date: 2018-03-19
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Marcus Hallman
+Maintainer: Who to complain to <hallman@wustl.edu>
+Description: Hopefully passes my midterm
+License: 3.4
