@@ -33,7 +33,17 @@ setMethod("initialize", "rasch", function(.Object, ...){
   
 #Probability
 
-  
+# a generic Probability function
+setGeneric("probability", function(object="rasch"){   
+  standardGeneric("probability")
+})
+
+setMethod("probability", "rasch",
+function(raschObj,theta){
+ pn<-length(object@a)
+  print(pn)
+}
+)
   
   
   
@@ -42,6 +52,6 @@ setMethod("initialize", "rasch", function(.Object, ...){
   
  #running it 
   
-  current.code <- as.package("squaresPack")
+  current.code <- as.package("easyRasch")
   load_all(current.code)
   document(current.code)  
